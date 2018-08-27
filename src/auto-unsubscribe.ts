@@ -23,8 +23,8 @@ export function AutoUnsubscribe({ blackList = [], includeArrays = false, arrayNa
       }
 
       for (let propName in this) {
-        if (blackList.includes(propName)) continue;
-
+        if (blackList.indexOf(propName) >= 0)
+                    continue;
         const property = this[propName];
         doUnsubscribe(property);
         doUnsubscribeIfArray(property);
